@@ -1,15 +1,18 @@
 package com.example.businesscard
 
 
+import android.icu.lang.UCharacter.LineBreak
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -83,21 +86,48 @@ fun BusinessCard() {
             modifier = Modifier
                 .padding(top = 120.dp)
         ) {
-            Row {
+            Row(
+                modifier = Modifier
+                    .border(width = 1.dp, color = Color.White)
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally),
+
+            ){
+
                 Icon(
                     Icons.Filled.Phone,
                     contentDescription = "Phone icon",
-                    tint = Color(0xFF3ddc84)
+                    tint = Color(0xFF3ddc84),
+                    modifier = Modifier
+                        .padding(end = 112.dp)
                 )
                 Text(
                     text = "(11) 99890-4227",
                     fontSize = 16.sp,
-                    modifier = Modifier.padding(start = 120.dp),
                     color = Color.White
+                )
 
+            }
+            Row(
+                modifier = Modifier
+                    .border(width = 1.dp, color = Color.White)
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally),
 
-        )
+                )
+            {
 
+                Icon(
+                    Icons.Filled.Email,
+                    contentDescription = "Email icon",
+                    tint = Color(0xFF3ddc84),
+                    modifier = Modifier.padding(end = 88.dp)
+                )
+                Text(
+                    text = "vinifs19@gmail.com",
+                    fontSize = 16.sp,
+                    color = Color.White,
+                    )
             }
 
         }
