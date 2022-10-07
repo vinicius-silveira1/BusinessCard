@@ -6,10 +6,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Icon
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,36 +45,50 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BusinessCard() {
     val image = painterResource(R.drawable.android_logo)
-    Column {
-        Image(
-            painter = image,
-            contentDescription = null,
-            modifier = Modifier
-                .wrapContentWidth(Alignment.CenterHorizontally)
-                .wrapContentHeight(Alignment.CenterVertically)
-                .size(48.dp),
-            contentScale = ContentScale.Crop
+    Column(horizontalAlignment = Alignment.CenterHorizontally,){
+        Column {
+            Image(
+                painter = image,
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .width(100.dp)
+                    .height(100.dp)
+            )
+            Text(
+                text = "Vinicius Silveira",
+                fontSize = 40.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+            )
+            Text(
+                text = "Android Developer",
+                fontSize = 24 .sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+            )
+        }
+        Column {
+            Row(horizontalArrangement = Arrangement.SpaceBetween){
+                Icon(
+                    Icons.Filled.Phone,
+                    contentDescription = "Phone icon"
+                )
+                Text(
+                    text = "(11) 99890-4227",
+                    fontSize = 16.sp,
+        )
 
-        )
-        Text(
-            text = "Vinicius Silveira",
-            fontSize = 40.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(Alignment.CenterHorizontally)
-        )
-        Text(
-            text = "Android Developer",
-            fontSize = 32.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(Alignment.CenterHorizontally)
-        )
+            }
+
+        }
     }
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, widthDp = 390, heightDp = 800)
 @Composable
 fun DefaultPreview() {
     BusinessCardTheme {
